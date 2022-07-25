@@ -1,0 +1,16 @@
+
+.landing-cointainer{
+    align-items: center;
+    display: flex;
+    margin-top: auto;
+    margin-top: 100px;
+}
+.BannerImg{
+    margin-left: 500px;
+    height: 80Vh;
+    width:15%;
+}
+
+h2{
+    color: green;
+}
