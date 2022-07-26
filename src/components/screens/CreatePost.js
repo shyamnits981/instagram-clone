@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import M from 'materialize-css';
-
+import { useNavigate } from "react-router-dom";
 
 
 const Createpost = ()=> {
+    const navigate = useNavigate();
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
     const [description, setDescription] = useState("")
@@ -35,16 +36,13 @@ const Createpost = ()=> {
                     }
                     else {
                         M.toast({ html: "Created Post successfully", classes: "#e91e63 pink" })
-                     
+                        navigate('/postview')
                     }
                 }).catch(err => {
                     console.log(err)
                 })
-
-        }
+           }
     }, [url])
-
-
     const postDetails = () => {
         const data = new FormData()
         data.append("file", image)
@@ -54,16 +52,15 @@ const Createpost = ()=> {
         fetch("https://api.cloudinary.com/v1_1/daxiadpan/image/upload", {
             method: "post",
             body: data
-        })
-            .then(res=> res.json())
+       
+        }).then(res=> res.json())
             .then(data=> {
                 setUrl(data.url)
             })
             .catch(err => {
                 console.log(err);
             })
-    }
-
+         }
     return (
         <div className="card input-filed"
             style={{

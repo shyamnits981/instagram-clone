@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import M from 'materialize-css';
 
-const Signup=()=>{
+const Signup = ()=>{
     // const history = useHistory()
 const [name, setName] = useState("")
 const [email, setEmail] = useState("")

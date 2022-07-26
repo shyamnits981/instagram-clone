@@ -41,5 +41,4 @@ const PostView = ()=> {
       </div>
   )
 }
-
 export default PostView;
