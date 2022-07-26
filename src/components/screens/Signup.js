@@ -1,43 +1,46 @@
-import { useState, useHistory } from 'react';
+import { useState } from 'react';
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import M from 'materialize-css';
 
 const Signup=()=>{
-const history = useHistory
+    // const history = useHistory()
 const [name, setName] = useState("")
-const [password, setPassword] = useState("")
 const [email, setEmail] = useState("")
+const [password, setPassword] = useState("")
+const PostData = ()=>{
 
-const PostData =()=>{
     if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
-        M.toast({html:"Invalid email", classes:"#e91e63 pink"})
-       return
+        M.toast({html:"invalid email"})
+        return
     }
-    fetch("http://localhost:2020/signup",{
-        method: "Post",
+  
+
+    fetch("http://localhost:5000/signup",{
+        method:"POST",
         headers:{
-            "Content-Type":"application/json"
+             "Content-Type":"application/json"
         },
         body:JSON.stringify({
-            name:"",
-            password:"",
-            email:""
+            name,
+            email,
+            password
         })
     }).then(res=>res.json())
     .then(data=>{
         if(data.error){
-            M.toast({html: data.error, classes:"#ef9a9a red lighten-3"})
+            M.toast({html:data.error, classes:"#d50000 red accent-4"})
         }else{
-            M.toast({html:data.message, classes:"#e91e63 pink"})
-             history.push('/signin')
+            M.toast({html:data.message,classes:"#2e7d32 green darken-3"})
+            // history.push("/signin")
         }
+   
     }).catch(err=>{
-        console.log(err)
+        console.log(err);
     })
     
 }
-
 
     return(
 <div className='mycard'>

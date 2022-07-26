@@ -1,30 +1,31 @@
 import React, { useState, useEffect } from "react";
 import M from 'materialize-css';
-// import { useHistory } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { navigate, useNavigate } from "react-router-dom";
 
 
-const Createpost = () => {
+const Createpost = ()=> {
     // const history = useHistory();
-    const Navigate = useNavigate()
-    const [author, setAuthor] = useState("")
-    const [location, setLocation] = useState("")
+    const navigate = useNavigate()
+    const [title, setTitle] = useState("")
+    const [body, setBody] = useState("")
     const [description, setDescription] = useState("")
     const [image, setImage] = useState("")
     const [url, setUrl] = useState("")
+   
+   
     useEffect(() => {
         if (url) {
             fetch("/createpost", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Bearer " + localStorage.getItem("jwt")
+                    "Content-Type":"application/json",
+                    "Authorization":"Bearer " + localStorage.getItem("jwt")
                 },
                 body: JSON.stringify({
-                    author:"",
-                    location:"",
-                    description:"",
-                    pic: url
+                    title,
+                    body,
+                    description,
+                    pic:url
 
                 })
             })
@@ -37,7 +38,7 @@ const Createpost = () => {
                     else {
                         M.toast({ html: "Created Post successfully", classes: "#e91e63 pink" })
                         // history.push('/')
-                        Navigate.push("/")
+                        navigate.push("/")
 
                     }
                 }).catch(err => {
@@ -58,8 +59,8 @@ const Createpost = () => {
             method: "post",
             body: data
         })
-            .then(res => res.json())
-            .then(data => {
+            .then(res=> res.json())
+            .then(data=> {
                 setUrl(data.url)
             })
             .catch(err => {
@@ -74,25 +75,30 @@ const Createpost = () => {
                 margin: "10px auto",
                 maxWidth: "500px",
                 padding: "20px",
-                textAlign: "center"
+                textAlign: "center",
+                "background-color":" #e6e6e6"
             }}
         >
 
                 <div className="file-field input-field">
                 <div className="btn ">
-                    <span>Upload image</span>
+                    <span>Choose a file</span>
                     <input type="file" onChange={(e) => setImage(e.target.files[0])} />
                 </div>
                 <div className="file-path-wrapper">
                 <input className="file-path validate" type="text" />
             </div>
             </div>
-            <input type="text" placeholder="author" value={author} onChange={(e) => setAuthor(e.target.value)} />
-            <input type="text" placeholder="location" value={location} onChange={(e) => setLocation(e.target.value)} />
-            <input type="text" placeholder="descripiton" value={description} onChange={(e) => setDescription(e.target.value)} />
-            <button className='btn waves-effect waves-light' onClick={() => postDetails()} >Submit POST</button>
+            <input type="text" placeholder="Author" value={title} onChange={(e) => setTitle(e.target.value)} />
+            <input type="text" placeholder="Location" value={body} onChange={(e) => setBody(e.target.value)} />
+            <input type="text" placeholder="description" value={description} onChange={(e) => setDescription(e.target.value)} />
+            
+            <button className='btn waves-effect waves-light #64b5f6 blue darken-1' onClick={() => postDetails()} >Submit POST</button>
         </div>
     )
 }
 
 export default Createpost;
+
+
+

@@ -1,11 +1,12 @@
 import React from 'react';
-import { useState, useHistory } from 'react';
+import { useState} from 'react';
 import { Link } from 'react-router-dom';
 import M from 'materialize-css';
 
-const Signin=()=>{
 
-const history = useHistory
+const SignIn=()=>{
+  
+// const history = useHistory
 const [password, setPassword] = useState("")
 const [email, setEmail] = useState("")
 
@@ -14,15 +15,15 @@ const PostData =()=>{
         M.toast({html:"Invalid email", classes:"#e91e63 pink"})
        return
     }
-    fetch("/signin",{
-        method: "Post",
+    fetch("/signin", {
+        method: "POST",
         headers:{
             "Content-Type":"application/json",
             
         },
         body:JSON.stringify({
-            email:"",
-            password:""
+           email,
+           password
         })
     }).then(res=>res.json()).then(data=>{
         console.log(data)
@@ -32,7 +33,7 @@ const PostData =()=>{
             localStorage.setItem("jwt",data.token)
             localStorage.setItem("user",JSON.stringify(data.user))
             M.toast({html:"signedin successfully", classes:"#e91e63 pink"})
-             history.push('/')
+            //  history.push('/')
             
         }
     }).catch(err=>{
@@ -55,4 +56,4 @@ const PostData =()=>{
 )
 }
 
-export default Signin;
+export default SignIn;
