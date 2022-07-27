@@ -9,6 +9,7 @@ const LandingPage = () =>{
         <div className="landing-cointainer" >
         <img className="BannerImg" src={Banner} alt="BannerImage" ></img>
         
+        
         <div>
         <h2>
             10X Team 04
