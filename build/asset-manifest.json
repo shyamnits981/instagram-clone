@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/instaclone-heroku-react.git/instaclone-heroku-react/static/css/main.ac6889ed.css",
+    "main.js": "/instaclone-heroku-react.git/instaclone-heroku-react/static/js/main.2716635d.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/instaclone-heroku-react.git/instaclone-heroku-react/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/banner.webp": "/instaclone-heroku-react.git/instaclone-heroku-react/static/media/banner.f5ab46f4a9876e5137fb.webp",
+    "index.html": "/instaclone-heroku-react.git/instaclone-heroku-react/index.html",
+    "main.ac6889ed.css.map": "/instaclone-heroku-react.git/instaclone-heroku-react/static/css/main.ac6889ed.css.map",
+    "main.2716635d.js.map": "/instaclone-heroku-react.git/instaclone-heroku-react/static/js/main.2716635d.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/instaclone-heroku-react.git/instaclone-heroku-react/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ac6889ed.css",
+    "static/js/main.2716635d.js"
+  ]
+}
