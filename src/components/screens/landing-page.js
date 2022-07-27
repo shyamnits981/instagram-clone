@@ -12,7 +12,7 @@ const LandingPage = () =>{
         
         <div>
         <h2>
-            10X Team 04
+            10X  Team  04
         </h2>
         <Link to="/post-view"><button>Enter</button></Link>
         </div>
